@@ -12,6 +12,8 @@ public class DiaryServiceApplication {
 		System.out.println("Diary Service Application Started");
 		System.out.println("Hi on!");
 		System.out.println("try");
+
+		System.out.println("Hi spring");
 	}
 
 }
