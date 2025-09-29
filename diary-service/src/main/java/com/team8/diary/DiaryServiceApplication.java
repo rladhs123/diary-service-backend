@@ -10,6 +10,7 @@ public class DiaryServiceApplication {
 		SpringApplication.run(DiaryServiceApplication.class, args);
 
 		System.out.println("Diary Service Application Started");
+		System.out.println("Hi on!");
 	}
 
 }
