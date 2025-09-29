@@ -8,6 +8,8 @@ public class DiaryServiceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DiaryServiceApplication.class, args);
+
+		System.out.println("Diary Service Application Started");
 	}
 
 }
