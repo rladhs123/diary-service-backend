@@ -1,4 +1,6 @@
 package com.team8.diary.domain;
 
-public class Member {
+public class User {
+
+
 }
