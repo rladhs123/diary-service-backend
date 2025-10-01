@@ -14,6 +14,7 @@ public class DiaryServiceApplication {
 		System.out.println("try");
 
 		System.out.println("Hi spring");
+		System.out.println("main branch");
 	}
 
 }
