@@ -14,22 +14,21 @@ public class Member {
     @Column(name = "member_id")
     private long memberId;
 
-    @Column(name = "member_email", nullable = false, unique = true)
+    @Column(nullable = false, unique = true)
     private String memberEmail;
 
-    @Column(name = "password", nullable = false)
+    @Column(nullable = false)
     private String password;
 
-    @Column(name = "member_name", nullable = false)
+    @Setter
     private String memberName;
 
 
     //new로 객체 생성 안됨. 그대신 Member.build()로 생성가능
     @Builder
-    private Member(String memberEmail, String password, String memberName) {
+    private Member(String memberEmail, String password) {
         this.memberEmail = memberEmail;
         this.password = password;
-        this.memberName = memberName;
     }
 
     public static Member signUp(String email, String encodedPassword) {
