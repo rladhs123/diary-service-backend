@@ -1,5 +1,6 @@
 package com.team8.diary.service;
 
+<<<<<<< HEAD
 import com.team8.diary.domain.Diary;
 import com.team8.diary.domain.Member;
 import com.team8.diary.external.ImageGenerateAI;
@@ -37,4 +38,10 @@ public class DiaryService {
     public List<Diary> findDiaryByMemberId(Long memberId) {
         diaryRepository.findDiaryList();
     }
+=======
+import org.springframework.stereotype.Service;
+
+@Service
+public class DiaryService {
+>>>>>>> main
 }
