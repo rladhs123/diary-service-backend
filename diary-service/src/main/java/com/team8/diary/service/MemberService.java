@@ -1,4 +1,4 @@
-package com.team8.diary.serivce;
+package com.team8.diary.service;
 
 import com.team8.diary.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;

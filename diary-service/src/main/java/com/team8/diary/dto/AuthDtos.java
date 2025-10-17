@@ -19,7 +19,12 @@ public class AuthDtos {
     }
 
     public record TokenResponse(
-            String accessToken
+            String accessToken,
+            String refreshToken
+    ) {}
+
+    public record RefreshRequest(
+            @NotBlank String refreshToken
     ) {}
 
 }
