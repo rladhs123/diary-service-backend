@@ -21,8 +21,6 @@ public class ImageGenerateAI {
 
     public String generateImage(String prompt) {
         try {
-            System.out.println(aiApiKey);
-
             WebClient webClient = WebClient.builder()
                     .baseUrl(aiApiUrl + "?key=" + aiApiKey)
                     .defaultHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE)
@@ -55,7 +53,7 @@ public class ImageGenerateAI {
             return (String) part.get("text");
         } catch (WebClientResponseException e) {
             log.error("api 호출실패 (상태코드: {}), (오류 메세지: {}) ", e.getStatusCode(), e.getStatusText());
-            System.out.println("💥 Response Body: " + e.getResponseBodyAsString());
+            System.out.println("Response Body: " + e.getResponseBodyAsString());
         }
 
         return null;
