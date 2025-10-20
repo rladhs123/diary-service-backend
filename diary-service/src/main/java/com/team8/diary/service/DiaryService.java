@@ -33,8 +33,8 @@ public class DiaryService {
         return diary;
     }
 
-    @Transactional
-    public List<Diary> findDiaryByMemberId(Long memberId) {
-        diaryRepository.findDiaryList();
-    }
+//    @Transactional
+//    public List<Diary> findDiaryByMemberId(Long memberId) {
+//        diaryRepository.findDiaryList();
+//    }
 }
