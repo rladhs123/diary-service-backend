@@ -39,3 +39,10 @@ out/
 
 ### .env 환경변수 절대 올리지 말 것 ###
 .env
+
+#####
+/4624
+.pyc
+.DS_Store
+.DS_store
+..DS_Store

@@ -3,6 +3,9 @@ package com.team8.diary.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -17,9 +20,11 @@ public class Diary {
     @Column(columnDefinition = "TEXT")
     private String content;
 
-    private String imageUrl;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_Id", nullable = false)
     private Member member;
+
+    @OneToMany(mappedBy = "diary", cascade = CascadeType.ALL)
+    @Builder.Default
+    private  List<Image> imageUrls = new ArrayList<>();
 }
