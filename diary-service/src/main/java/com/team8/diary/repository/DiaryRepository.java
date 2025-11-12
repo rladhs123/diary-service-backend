@@ -1,26 +1,17 @@
 package com.team8.diary.repository;
 
 import com.team8.diary.domain.Diary;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import java.util.Optional;
 
 @Repository
-@RequiredArgsConstructor
-public interface DiaryRepository extends JpaRepository<Diary, > {
+public interface DiaryRepository extends JpaRepository<Diary, Long> {
 
-    @PersistenceContext
-    private final EntityManager em;
+    Page<Diary> findByMember_MemberId(Long memberMemberId, Pageable pageable);
 
-    public void save(Diary diary) {
-        em.persist(diary);
-    }
-
-    public List<Diary> findDiaryList() {
-
-    }
+    Optional<Diary> findByIdAndMember_MemberId(Long id, Long memberMemberId);
 }

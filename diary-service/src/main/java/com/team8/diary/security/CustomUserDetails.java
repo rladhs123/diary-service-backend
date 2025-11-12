@@ -13,7 +13,7 @@ public class CustomUserDetails implements UserDetails {
         this.member = member;
     }
 
-    public Member getMeber() {
+    public Member getMember() {
         return member;
     }
 
