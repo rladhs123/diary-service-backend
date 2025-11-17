@@ -29,9 +29,4 @@ public class InMemoryRefreshTokenStore implements RefreshTokenStore {
 
     }
 
-    @Override
-    public boolean isBlacklisted(String accessToken) {
-        return false;
-    }
-
 }
