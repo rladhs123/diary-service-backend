@@ -3,6 +3,7 @@ package com.team8.diary.service;
 import com.team8.diary.domain.Diary;
 import com.team8.diary.domain.Image;
 import com.team8.diary.domain.Member;
+import com.team8.diary.dto.DiaryFindAllResponseDto;
 import com.team8.diary.external.TextGenerationAi;
 import com.team8.diary.external.VertexAi;
 import com.team8.diary.repository.DiaryRepository;
@@ -49,8 +50,11 @@ public class DiaryService {
         return imageUrls;
     }
 
-//    @Transactional
-//    public List<Diary> findDiaryByMemberId(Long memberId) {
-//        diaryRepository.findDiaryList();
-//    }
+    @Transactional
+    public List<DiaryFindAllResponseDto> findDiaryByMemberId(Long memberId) {
+        return diaryRepository.findByMember_MemberId(memberId)
+                .stream()
+                .map(diary -> DiaryFindAllResponseDto.from(diary))
+                .toList();
+    }
 }

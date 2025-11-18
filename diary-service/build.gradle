@@ -39,6 +39,8 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	implementation 'com.h2database:h2'
+	//PostgreSQL 드라이버 설정
+	runtimeOnly 'org.postgresql:postgresql'
 
 	//jjwt (jwt 라이브러리)
 	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
