@@ -1,7 +1,10 @@
 package com.team8.diary.controller;
 
+import com.team8.diary.domain.Diary;
 import com.team8.diary.domain.Member;
 import com.team8.diary.dto.DiaryCreateRequestDto;
+import com.team8.diary.dto.DiaryFindAllResponseDto;
+import com.team8.diary.exception.UnauthorizedException;
 import com.team8.diary.security.CustomUserDetails;
 import com.team8.diary.service.DiaryService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -59,9 +62,6 @@ public class DiaryController {
         }
 
         try {
-            // 서비스 계정 키를 사용한다면, 아래 코드를 사용하여 키 파일 경로를 환경 변수로 설정합니다.
-            // System.setProperty("GOOGLE_APPLICATION_CREDENTIALS", "/path/to/your/service-account-key.json");
-
             List<String> generatedImagesUrl = diaryService.createDiary(diaryText, member);
 
             return ResponseEntity.ok(generatedImagesUrl);
@@ -71,6 +71,14 @@ public class DiaryController {
         }
     }
     //일기 조회
+    @GetMapping
+    public List<DiaryFindAllResponseDto> findAllDiaries(@AuthenticationPrincipal CustomUserDetails userDetails) {
+        if (userDetails == null || userDetails.getMember() == null) {
+            throw new UnauthorizedException("로그인이 필요합니다.");
+        }
+        Member member = userDetails.getMember();
+        return diaryService.findDiaryByMemberId(member.getMemberId());
+    }
 
     //일기 삭제
 
