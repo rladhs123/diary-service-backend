@@ -6,5 +6,5 @@ public interface RefreshTokenStore {
     boolean isSame(String email, String refreshToken);
     void delete(String email);
     void blacklistAccess(String accessToken);
-    boolean isBlacklisted(String accessToken);
+
 }
